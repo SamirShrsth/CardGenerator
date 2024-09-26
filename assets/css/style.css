@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: black;
+}
+
+header .logo img{
+    width: 120px;
+    height: 20px;
+}
+
+nav .user-icon {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+nav a:hover {
+    text-decoration: underline; 
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0px 40px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 40px 80px;
+}
+
+.left-content {
+    max-width: 40%;
+    margin-top: 100px;
+}
+
+.left-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-family: "Playfair Display", serif;
+    font-weight:800;
+}
+
+.left-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+.home-button{
+    display: flex;
+    gap: 30px;
+}
+.create-card-btn {
+    background-color: black;
+    padding: 15px 25px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: 0.2s;
+}
+
+.create-card-btn:hover {
+    background-color: #0088FF;
+}
+
+
+/* Slideshow Container */
+.slideshow-container {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+}
+
+.slideshow-container img {
+    width: 100%;
+    height: 500px; /* Set a specific height */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    display: block;
+    border-radius: 50px; /* Optional: to give the images rounded corners */
+}
+
+/* Slide fade animation */
+.fade {
+    animation: fadeEffect 1.5s ease-in-out;
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0.4}
+    to {opacity: 1}
+}
+
+
+/* Previous and next buttons */
+
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; 
+}
+
+.prev, .next {
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px; 
+    user-select: none;
+    margin: 0 10px;
+}
+
+/* Adjusting the hover effect for buttons */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Dots for navigation */
+.dots-container {
+    text-align: center;
+    margin: 10px 0; /* Adjust margin as needed */
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #717171;
+}
+.benefits-section {
+    background-color: #f4f4f4;
+    padding: 60px 80px;
+    text-align: center;
+}
+
+.benefits-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.benefits-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.benefit-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 22%; /* Adjust width for 4 items in a row */
+    margin: 20px 0;
+}
+
+.benefit-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.benefit-item h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.benefit-item p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .right-content {
+        margin-top: 30px;
+    }
+    
+    .right-content img {
+        width: 300px;
+    }
+    .benefits-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .benefit-item {
+        width: 80%; /* Full-width on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .benefits-section h2 {
+        font-size: 28px;
+    }
+
+    .benefit-item h3 {
+        font-size: 18px;
+    }
+
+    .benefit-item p {
+        font-size: 12px;
+    }
+}
