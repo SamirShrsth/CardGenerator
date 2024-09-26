@@ -1,9 +1,11 @@
+/* Body Section */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -17,6 +19,7 @@ header .logo img{
     height: 20px;
 }
 
+/* Nav */
 nav .user-icon {
     width: 30px;
     height: 30px;
@@ -44,6 +47,7 @@ a {
     font-size: 14px;
 }
 
+/* Main Content */
 .main-content {
     display: flex;
     justify-content: space-between;
@@ -85,7 +89,6 @@ a {
     background-color: #0088FF;
 }
 
-
 /* Slideshow Container */
 .slideshow-container {
     position: relative;
@@ -95,13 +98,12 @@ a {
 
 .slideshow-container img {
     width: 100%;
-    height: 500px; /* Set a specific height */
-    object-fit: cover; /* Ensures images cover the area without distortion */
+    height: 500px;
+    object-fit: cover;
     display: block;
-    border-radius: 50px; /* Optional: to give the images rounded corners */
+    border-radius: 50px;
 }
 
-/* Slide fade animation */
 .fade {
     animation: fadeEffect 1.5s ease-in-out;
 }
@@ -110,7 +112,6 @@ a {
     from {opacity: 0.4}
     to {opacity: 1}
 }
-
 
 /* Previous and next buttons */
 
@@ -147,7 +148,7 @@ a {
 /* Dots for navigation */
 .dots-container {
     text-align: center;
-    margin: 10px 0; /* Adjust margin as needed */
+    margin: 10px 0;
 }
 
 .dot {
@@ -163,6 +164,79 @@ a {
 .dot.active {
     background-color: #717171;
 }
+/* View Templates  */
+.templates-section {
+    background-color: #f4f4f4;
+    padding: 60px 80px;
+    text-align: center;
+}
+
+.templates-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.templates-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.template-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 22%; 
+    margin: 20px 0; 
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+
+.template-item img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners for images */
+}
+
+.template-item h3 {
+    font-size: 1rem; /* Size of the template title */
+    margin-top: 10px; /* Space above the title */
+    color: #333;
+}
+.template-item.hidden {
+    opacity: 0; /* Fully transparent when hidden */
+    pointer-events: none; /* Prevent interactions when hidden */
+}
+/* Hover effect for template items */
+.template-item:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+.view-more {
+    background-color: #0088FF; /* Button color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding for button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-top: 20px; /* Space above the button */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.view-more:hover {
+    background-color: black; /* Darker color on hover */
+}
+
+.hidden {
+    display: none; /* Hidden by default */
+}
+
+
+
+/* Benefits Section  */
 .benefits-section {
     background-color: #f4f4f4;
     padding: 60px 80px;
@@ -211,6 +285,250 @@ a {
     line-height: 1.6;
 }
 
+/* Testinomial Section  */
+.testimonials-section {
+    background-color: #f4f4f4;
+    padding: 60px 80px;
+    text-align: center;
+}
+
+.testimonials-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.testimonials-container {
+    display: flex;
+    justify-content: space-between; /* Space testimonials evenly */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.testimonial-item {
+    background-color: white;
+    padding: 40px 30px; /* Increase padding for more space */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%; /* Adjust width for layout */
+    margin: 20px 0;
+    text-align: center; /* Center text and content */
+    min-height: 300px; /* Set a minimum height to ensure enough space */    
+}
+
+.testimonial-item p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-top: 15px; /* Space between the testimonial text and user icon */
+}
+
+.testimonial-item h3 {
+    margin-top: 15px;
+    font-size: 1    rem; /* Slightly larger font for user name */
+    color: #333;
+}
+.testimonial-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%; /* Adjust width as necessary */
+    margin: 20px 0;
+    text-align: center; /* Center all text and icon */
+}
+.testimonial-item .user-icon {
+    width: 70px; /* Increased icon size for better visibility */
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Center the icon */
+}
+
+/* Contact Us  */
+
+.contact-us-section {
+    background-color: #f4f4f4;
+    padding: 60px 80px;
+    text-align: center;
+}
+
+.contact-us-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-us-section p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.contact-form-box {
+    background-color: white;
+    border: 1px solid #ddd; /* Light border around the box */
+    border-radius: 10px; /* Slight rounding of the box corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 40px; /* Padding inside the box */
+    max-width: 600px;
+    margin: 0 auto; /* Center the box */
+    text-align: left;
+}
+
+.contact-form {
+    margin: 0; /* Reset margin to ensure the form aligns well inside the box */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #0088ff;
+    outline: none;
+}
+
+.contact-submit-btn {
+    background-color: #0088ff;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-submit-btn:hover {
+    background-color: black;
+}
+
+/* Footer Section */
+.footer-section {
+    background-color: #111;
+    color: white;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    width: 23%;
+    margin-bottom: 20px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.footer-column p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #bbb;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #bbb;
+}
+
+.footer-column ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #0088ff;
+}
+
+/* Social Media Icons */
+.social-media {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.social-media li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+.social-media img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Contact Info */
+.contact-info li {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Quick Links */
+.quick-links li {
+    margin-bottom: 10px;
+}
+
+.quick-links li a {
+    font-size: 14px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    background-color: #000;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #777;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+
+/* 768 Pixels Responsive */
+
 @media (max-width: 768px) {
     .main-content {
         flex-direction: column;
@@ -224,6 +542,10 @@ a {
     .right-content img {
         width: 300px;
     }
+
+    .template-item {
+        width: 45%; /* Adjust width for smaller screens */
+    }
     .benefits-container {
         flex-direction: column;
         align-items: center;
@@ -232,9 +554,31 @@ a {
     .benefit-item {
         width: 80%; /* Full-width on smaller screens */
     }
+    .contact-form {
+        padding: 0 20px;
+    }
+    .contact-form-box {
+        padding: 20px;
+    }
+    
+    .contact-form {
+        padding: 0 20px;
+    }
+    .footer-column {
+        width: 45%;
+        margin-bottom: 30px;
+    }
 }
 
 @media (max-width: 480px) {
+    .template-item {
+        width: 80%; /* Full width for very small screens */
+    }
+
+    .templates-section h2 {
+        font-size: 28px; /* Smaller font size for mobile */
+    }
+
     .benefits-section h2 {
         font-size: 28px;
     }
@@ -245,5 +589,8 @@ a {
 
     .benefit-item p {
         font-size: 12px;
+    }
+    .footer-column {
+        width: 100%;
     }
 }
