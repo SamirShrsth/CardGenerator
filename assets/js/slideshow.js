@@ -2,13 +2,12 @@ let slideIndex = 1;
 let slideInterval;
 
 document.addEventListener("DOMContentLoaded", function () {
-    showSlides(slideIndex); // Show the first slide only on load
+    showSlides(slideIndex); // Show the first slide on load
     startSlideShow(); // Start the automatic slideshow
 });
 
-// Function to start the automatic slideshow
 function startSlideShow() {
-    slideInterval = setInterval(() => changeSlide(1), 3000); // Change slide every 2 seconds
+    slideInterval = setInterval(() => changeSlide(1), 3000); // Change slide every 3 seconds
 }
 
 // Next/previous controls
@@ -26,27 +25,26 @@ function setCurrentSlide(n) {
 }
 
 function showSlides(n) {
-    let i;
     let slides = document.getElementsByClassName("slide");
     let dots = document.getElementsByClassName("dot");
 
-    // Wrap around the slide index
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
 
-    // Hide all slides
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"; // Hide each slide
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active", "prev-slide", "next-slide");
     }
 
-    // Remove "active" class from all dots
-    for (i = 0; i < dots.length; i++) {
+    let prevIndex = slideIndex - 2 < 0 ? slides.length - 1 : slideIndex - 2;
+    let nextIndex = slideIndex % slides.length;
+
+    slides[slideIndex - 1].classList.add("active");
+    slides[prevIndex].classList.add("prev-slide");
+    slides[nextIndex].classList.add("next-slide");
+
+    for (let i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
-
-    // Display the current slide
-    slides[slideIndex - 1].style.display = "block"; // Show the current slide
-
-    // Highlight the current dot
     dots[slideIndex - 1].className += " active";
 }
+

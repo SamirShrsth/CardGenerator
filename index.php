@@ -21,7 +21,7 @@ session_start();
 <body>
     <div class="container">
         <header>
-            <div class="logo">
+            <div class="logo">  
                 <a href="#"><img src="./assets/img/logo/logo.png" alt=""></a>
             </div>
             <nav>
@@ -34,17 +34,12 @@ session_start();
                 </ul>
             </nav>
             <nav>
-                <img class="user-icon" src="./assets/img/icons/user.png" alt="User Not Found">
                 <?php
-                // Check if the session is already started
-                if (session_status() == PHP_SESSION_NONE) {
-                    session_start();
-                }
-
                 // Check if the user is logged in
-                if (isset($_SESSION['username'])) {
-                    // If logged in, display the username and a logout link
-                    echo '<a href="#">' . $_SESSION['username'] . '</a>';
+                if (isset($_SESSION['profile_image'])) {
+                    // Display the user's profile image
+                    echo '<img class="user-icon" src="./assets/img/profile_images/' . htmlspecialchars($_SESSION['profile_image']) . '" alt="User Profile Image">';
+                    echo '<a href="./views/profile.php">' . htmlspecialchars($_SESSION['first_name']) . '</a>';
                     echo ' | <a href="./views/logout.php">Logout</a>';
                 } else {
                     // If not logged in, display the "Sign In" link
@@ -66,19 +61,20 @@ session_start();
             <!-- Slideshow (Right Content) -->
             <div class="right-content">
                 <div class="slideshow-container">
-                    <div class="slide fade">
+                    <div class="slide">
                         <img src="./assets/img/templates/template1.jpg" alt="Template 1">
                     </div>
-                    <div class="slide fade">
+                    <div class="slide">
                         <img src="./assets/img/templates/template2.jpg" alt="Template 2">
                     </div>
-                    <div class="slide fade">
+                    <div class="slide">
                         <img src="./assets/img/templates/template3.jpg" alt="Template 3">
                     </div>
-                    <div class="slide fade">
+                    <div class="slide">
                         <img src="./assets/img/templates/template4.jpg" alt="Template 4">
                     </div>
             
+                </div>
                 <div class="navigation-buttons">
                     <!-- Next/Prev buttons below the images -->
                     <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
@@ -89,13 +85,13 @@ session_start();
                         <span class="dot" onclick="setCurrentSlide(3)"></span>
                         <span class="dot" onclick="setCurrentSlide(4)"></span>
                     </div>
-                        <a class="next" onclick="changeSlide(1)">&#10095;</a>
-                    </div>
+                    <a class="next" onclick="changeSlide(1)">&#10095;</a>
                 </div>
             </div>
         </section>
         <div class="templates-section">
             <h2>View Templates</h2>
+            <p>View a variety template made by us and other users like you!</p>
             <div class="templates-container">
                 <div class="template-item">
                     <img src="./assets/img/templates/template1.jpg" alt="Template 1">

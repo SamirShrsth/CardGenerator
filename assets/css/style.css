@@ -10,7 +10,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 20px 100px;
     background-color: black;
 }
 
@@ -52,7 +52,7 @@ a {
     display: flex;
     justify-content: space-between;
     height: 100vh;
-    padding: 40px 80px;
+    padding: 40px 100px;
 }
 
 .left-content {
@@ -88,12 +88,17 @@ a {
 .create-card-btn:hover {
     background-color: #0088FF;
 }
+.right-content{
+    width: 35%;
+    height: 70vh;
+}
 
 /* Slideshow Container */
 .slideshow-container {
+    height: 100%;
     position: relative;
-    max-width: 900px;
     margin: auto;
+    overflow: hidden; /* Prevents overflow from showing */
 }
 
 .slideshow-container img {
@@ -103,15 +108,33 @@ a {
     display: block;
     border-radius: 50px;
 }
-
-.fade {
-    animation: fadeEffect 1.5s ease-in-out;
+/* Slideshow Animation */
+.slide {
+    position: absolute; /* Stack slides on top of each other */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 0;
+}   
+.slide.active {
+    opacity: 1;
+    z-index: 1; /* Ensure the active slide is on top */
+    transform: translateX(0);
 }
 
-@keyframes fadeEffect {
-    from {opacity: 0.4}
-    to {opacity: 1}
+.slide.prev-slide {
+    transform: translateX(-100%);
+    z-index: 0; /* Move the previous slide off-screen */
 }
+
+.slide.next-slide {
+    transform: translateX(100%);
+    z-index: 0; /* Move the next slide off-screen */
+}
+
 
 /* Previous and next buttons */
 
@@ -128,9 +151,10 @@ a {
     font-size: 18px;
     cursor: pointer;
     border: none;
-    border-radius: 5px; 
+    border-radius: 5px;
     user-select: none;
     margin: 0 10px;
+    z-index: 10; /* Ensure buttons stay above the slides */
 }
 
 /* Adjusting the hover effect for buttons */
@@ -174,8 +198,10 @@ a {
 .templates-section h2 {
     font-size: 36px;
     font-weight: 700;
-    margin-bottom: 40px;
     color: #333;
+}
+.templates-section p{
+    margin-bottom: 40px;
 }
 
 .templates-container {

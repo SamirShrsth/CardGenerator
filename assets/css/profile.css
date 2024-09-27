@@ -1,0 +1,36 @@
+/* Profile Content */
+.profile-content {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: white; /* Set background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* Center text */
+}
+
+.profile-content h2 {
+    font-size: 2rem; /* Size for the profile heading */
+    margin-bottom: 20px; /* Space below heading */
+    color: #333; /* Heading color */
+}
+
+.profile-image {
+    display: block; /* Block display for centering */
+    margin: 0 auto 20px; /* Centering with margin */
+    width: 150px; /* Set width */
+    height: 150px; /* Set height */
+    border-radius: 50%; /* Circular image */
+    object-fit: cover; /* Maintain aspect ratio */
+    border: 2px solid #0088FF; /* Border color */
+}
+
+.user-info {
+    font-size: 1rem; /* Font size for user info */
+    line-height: 1.6; /* Line height for readability */
+    color: #666; /* Text color */
+}
+
+.user-info p {
+    margin: 10px 0; /* Space between paragraphs */
+}
