@@ -8,6 +8,7 @@
         </div>
     </div>
 
+    <!-- Slideshow (Right Content) -->
     <div class="right-content">
         <div class="slideshow-container">
             <div class="slide">
@@ -22,9 +23,12 @@
             <div class="slide">
                 <img src="./assets/img/templates/template4.jpg" alt="Template 4">
             </div>
+    
         </div>
         <div class="navigation-buttons">
+            <!-- Next/Prev buttons below the images -->
             <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <!-- Dots for navigation -->
             <div class="dots-container">
                 <span class="dot" onclick="setCurrentSlide(1)"></span>
                 <span class="dot" onclick="setCurrentSlide(2)"></span>
@@ -35,19 +39,3 @@
         </div>
     </div>
 </section>
-
-<div class="templates-section">
-    <h2>View Templates</h2>
-    <p>View a variety template made by us and other users like you!</p>
-    <div class="templates-container">
-        <div class="template-item">
-            <img src="./assets/img/templates/template1.jpg" alt="Template 1">
-            <h3>By Ram Shah</h3>
-        </div>
-        <div class="template-item hidden">
-            <img src="./assets/img/templates/template1.jpg" alt="Template 1">
-            <h3>By Ram Shah</h3>
-        </div>
-    </div>
-    <button class="view-more" onclick="toggleTemplates()">View More</button>
-</div>

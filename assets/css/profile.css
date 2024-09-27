@@ -1,36 +1,117 @@
-/* Profile Content */
-.profile-content {
-    max-width: 600px;
-    margin: auto;
+/* assets/css/profile.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
     padding: 20px;
-    background-color: white; /* Set background color */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    text-align: center; /* Center text */
+    border-radius: 8px;
+    height: 80vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.profile-content h2 {
-    font-size: 2rem; /* Size for the profile heading */
-    margin-bottom: 20px; /* Space below heading */
-    color: #333; /* Heading color */
+h2 {
+    color: #333;
+    text-align: center;
 }
 
+.profile-content, .edit-profile-content {
+    margin-top: 20px;
+}
+.profile-info {
+    display: flex;
+    align-items: flex-start;
+}
 .profile-image {
-    display: block; /* Block display for centering */
-    margin: 0 auto 20px; /* Centering with margin */
-    width: 150px; /* Set width */
-    height: 150px; /* Set height */
-    border-radius: 50%; /* Circular image */
-    object-fit: cover; /* Maintain aspect ratio */
-    border: 2px solid #0088FF; /* Border color */
+    flex: 1; /* Allow image to take available space */
+    margin-right: 20px; /* Space between image and details */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile-image-img {
+    width: 175px; /* Set width of the profile image */
+    height: 175px; /* Set height of the profile image */
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover; /* Cover the area */
+}
+.profile-details {
+    flex: 2; /* Allow details to take more space */
 }
 
-.user-info {
-    font-size: 1rem; /* Font size for user info */
-    line-height: 1.6; /* Line height for readability */
-    color: #666; /* Text color */
+.info-segment {
+    background: #f9f9f9; /* Background for each segment */
+    padding: 10px;
+    margin-bottom: 30px; /* Space between segments */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Slight shadow */
+}
+
+.user-info, .edit-profile-content form {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 5px;
 }
 
 .user-info p {
-    margin: 10px 0; /* Space between paragraphs */
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.edit-profile-content label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.edit-profile-content input[type="text"],
+.edit-profile-content input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.edit-profile-content button {
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.edit-profile-content button:hover {
+    background: #218838;
+}
+
+.edit-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.edit-button:hover {
+    background: #0056b3;
+}
+
+.error-message {
+    color: #ff0000;
+    text-align: center;
+    margin-bottom: 20px;
 }

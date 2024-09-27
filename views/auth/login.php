@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../controllers/AuthController.php';
+require_once '../../controllers/AuthController.php';
 
 $error_message = ""; // Initialize error message variable
 
@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($loginSuccess) {
         // Redirect to dashboard or home page after successful login
-        header("Location: ../index.php");
+        header("Location: http://localhost/CardGenerator/");
         exit;
     } else {
         $error_message = "Invalid email or password.";
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../../assets/css/login.css">
     <title>Login</title>
 </head>
 <body>
