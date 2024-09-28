@@ -3,7 +3,7 @@
     <p>We value your feedback! Please leave a review below and rate your experience with our website.</p>
 
     <div class="review-form-box">
-        <form class="review-form" method="POST" action="/CardGenerator/views/handler/review_handler.php">
+        <form class="review-form" method="POST" action="/CardGenerator/controllers/ReviewController.php">
             <div class="form-group">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>

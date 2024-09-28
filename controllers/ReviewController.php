@@ -2,7 +2,7 @@
 session_start();
 
 
-require_once '../../config/Database.php';
+require_once '../config/Database.php';
 
 
 $database = new Database();

@@ -1,4 +1,3 @@
-<!-- views/auth/contact.php -->
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -6,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link rel="stylesheet" href="/CardGenerator/assets/css/style.css"> <!-- Your main CSS -->
-    <link rel="stylesheet" href="/CardGenerator/assets/css/contact.css"> <!-- Separate CSS for contact page -->
+    <link rel="stylesheet" href="/CardGenerator/assets/css/style.css"> 
+    <link rel="stylesheet" href="/CardGenerator/assets/css/contact.css"> 
 </head>
 <body>
     <?php include '../components/header.php'; ?>
@@ -16,11 +15,17 @@
         <h2>Contact Us</h2>
         <p>If you have any questions, feel free to reach out to us by filling out the form below.</p>
 
+        <?php if (isset($_GET['success'])): ?>
+            <p class="success-message">Your message has been sent successfully!</p>
+        <?php elseif (isset($_GET['error'])): ?>
+            <p class="error-message">There was an error sending your message. Please try again.</p>
+        <?php endif; ?>
+
         <div class="contact-form-container">
             <div class="form-left">
             </div>
             <div class="form-right">
-                <form class="contact-form" method="POST" action="../handler/contact_handler.php">
+                <form class="contact-form" method="POST" action="../../controllers/ContactController.php">
                     <div class="form-group">
                         <label for="name">Your Name</label>
                         <input type="text" id="name" name="name" placeholder="Enter your name" required>

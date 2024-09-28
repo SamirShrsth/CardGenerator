@@ -21,14 +21,13 @@ class AuthController {
         $profile_image_path = null;
     
         if (isset($profile_image) && $profile_image['error'] === UPLOAD_ERR_OK) {
-            // Specify the directory where you want to save the file
             $upload_dir = '../../assets/img/profile_images/';
             $file_name = basename($profile_image['name']);
             $target_file = $upload_dir . $file_name;
     
             // Move the uploaded file to the specified directory
             if (move_uploaded_file($profile_image['tmp_name'], $target_file)) {
-                $profile_image_path = $file_name; // Only store the file name or path relative to the upload directory
+                $profile_image_path = $file_name;
             } else {
                 return "Failed to upload image.";
             }
@@ -44,7 +43,6 @@ class AuthController {
     
 
     public function login($email, $password) {
-        // Check if the email exists
         $user = $this->userModel->getUserByEmail($email);
     
         if ($user) {
@@ -52,17 +50,17 @@ class AuthController {
             if (password_verify($password, $user['password_hash'])) {
                 // Password is correct, set session variables
                 $_SESSION['user_id'] = $user['user_id'];
-                $_SESSION['first_name'] = $user['first_name']; // Set first name in session
-                $_SESSION['last_name'] = $user['last_name'];   // Make sure this is set
+                $_SESSION['first_name'] = $user['first_name'];
+                $_SESSION['last_name'] = $user['last_name'];
                 $_SESSION['email'] = $user['email'];
                 $_SESSION['phone'] = $user['phone'];
                 $_SESSION['address'] = $user['address'];
                 $_SESSION['role'] = $user['role'];
-                $_SESSION['profile_image'] = $user['profile_image']; // Set profile image in session
+                $_SESSION['profile_image'] = $user['profile_image'];
                 return true;
             }
         }
-        return false; // Invalid email or password
+        return false;
     }
     public function updateProfile($userId, $firstName, $lastName, $email, $phone, $address) {
         return $this->userModel->updateUser($userId, $firstName, $lastName, $email, $phone, $address);

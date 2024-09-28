@@ -22,13 +22,10 @@ class UserModel {
         $stmt->execute();
         $result = $stmt->get_result();
     
-        return $result->fetch_assoc(); // Fetch the user data
+        return $result->fetch_assoc();
     }
     public function updateUser($userId, $firstName, $lastName, $email, $phone, $address) {
-        // Prepare the SQL query
         $sql = "UPDATE users SET first_name = ?, last_name = ?, email = ?, phone = ?, address = ? WHERE user_id = ?";
-        
-        // Use prepared statements to prevent SQL injection
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute([$firstName, $lastName, $email, $phone, $address, $userId]);
     }

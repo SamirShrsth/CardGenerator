@@ -10,7 +10,7 @@
             <ul class="contact-info">
                 <li><strong>Phone:</strong> +123 456 7890</li>
                 <li><strong>Email:</strong> info@example.com</li>
-                <li><strong>Address:</strong> 123 Example St, City, Country</li>
+                <li><strong>Address:</strong> Putalisadak, Kathmandu</li>
             </ul>
         </div>
 
@@ -20,7 +20,7 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Services</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="http://localhost/CardGenerator/views/pages/contact.php">Contact Us</a></li>
             </ul>
         </div>
 

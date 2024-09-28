@@ -1,12 +1,10 @@
 <?php
 include '../config/Database.php';
 
-// Create a new database connection
 $database = new Database();
 $conn = $database->getConnection();
 
-// Query to fetch card templates
-$query = "SELECT orientation, front_image, back_image, created_by FROM card_templates";
+$query = "SELECT orientation, front_image, back_image, created_by FROM card_templates LIMIT 4";
 $result = $conn->query($query);
 ?>
 
@@ -16,13 +14,10 @@ $result = $conn->query($query);
     <div class="templates-container">
 
         <?php
-        // Check if there are templates available
         if ($result->num_rows > 0) {
-            // Output data of each row
             while ($row = $result->fetch_assoc()) {
                 echo '<div class="template-item">';
-                // Adjust the image source to point to the correct uploads directory
-                echo '<img src="views/handler/' . htmlspecialchars($row['front_image']) . '" alt="Template">';
+                echo '<img src="controllers/' . htmlspecialchars($row['front_image']) . '" alt="Template">';
                 echo '<h3>By ' . htmlspecialchars($row['created_by']) . '</h3>';
                 echo '</div>';
             }
@@ -31,13 +26,26 @@ $result = $conn->query($query);
         }
         ?>
     </div>
+    
+    <div class="view-all-container" style="text-align: center; margin-top: 20px;">
+        <a href="http://localhost/CardGenerator/views/pages/view_templates.php" class="view-all-btn">View All Templates</a>
+    </div>
 </div>
 
-<script>
-    function toggleTemplates() {
-        const hiddenTemplates = document.querySelectorAll('.template-item.hidden');
-        hiddenTemplates.forEach(template => {
-            template.classList.toggle('hidden');
-        });
-    }
-</script>
+<style>
+.view-all-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.view-all-btn:hover {
+    background-color: #0056b3;
+}
+</style>

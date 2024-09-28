@@ -2,26 +2,26 @@ let slideIndex = 1;
 let slideInterval;
 
 document.addEventListener("DOMContentLoaded", function () {
-    showSlides(slideIndex); // Show the first slide on load
-    startSlideShow(); // Start the automatic slideshow
+    showSlides(slideIndex);
+    startSlideShow();
 });
 
 function startSlideShow() {
-    slideInterval = setInterval(() => changeSlide(1), 3000); // Change slide every 3 seconds
+    slideInterval = setInterval(() => changeSlide(1), 3000);
 }
 
 // Next/previous controls
 function changeSlide(n) {
-    clearInterval(slideInterval); // Clear the automatic slideshow interval
+    clearInterval(slideInterval);
     showSlides(slideIndex += n);
-    startSlideShow(); // Restart the automatic slideshow after manual navigation
+    startSlideShow();
 }
 
 // Thumbnail image controls
 function setCurrentSlide(n) {
-    clearInterval(slideInterval); // Clear the automatic slideshow interval
+    clearInterval(slideInterval);
     showSlides(slideIndex = n);
-    startSlideShow(); // Restart the automatic slideshow after manual navigation
+    startSlideShow();
 }
 
 function showSlides(n) {

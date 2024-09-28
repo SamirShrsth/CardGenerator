@@ -1,9 +1,9 @@
 <?php
 class Database {
     private $host = "localhost";
-    private $db_name = "CardStream"; // Change this to your database name
-    private $username = "root"; // Change this to your database username
-    private $password = ""; // Change this to your database password
+    private $db_name = "CardStream";
+    private $username = "root";
+    private $password = "";
     public $conn;
 
     public function getConnection() {

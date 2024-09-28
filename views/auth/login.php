@@ -2,10 +2,9 @@
 session_start();
 require_once '../../controllers/AuthController.php';
 
-$error_message = ""; // Initialize error message variable
+$error_message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect form data
     $email = $_POST['email'];
     $password = $_POST['password'];
 
@@ -13,7 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $loginSuccess = $authController->login($email, $password);
 
     if ($loginSuccess) {
-        // Redirect to dashboard or home page after successful login
         header("Location: http://localhost/CardGenerator/");
         exit;
     } else {
@@ -27,10 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/login.css">
     <title>Login</title>
 </head>
 <body>
+    <?php include '../components/header.php'; ?>
     <div class="container">
         <h2>Login</h2>
         <?php if (!empty($error_message)): ?>

@@ -1,20 +1,16 @@
-<!-- views/profile.php -->
 <?php
 session_start();
 
-// Check if the user is logged in
 if (!isset($_SESSION['first_name'])) {
-    header('Location: login.php'); // Redirect to login if not logged in
+    header('Location: login.php'); 
     exit();
 }
-
-// Assuming user information is stored in session variables
 $firstName = htmlspecialchars($_SESSION['first_name']);
 $lastName = isset($_SESSION['last_name']) ? htmlspecialchars($_SESSION['last_name']) : 'N/A';
 $email = isset($_SESSION['email']) ? htmlspecialchars($_SESSION['email']) : 'N/A';
 $phone = isset($_SESSION['phone']) ? htmlspecialchars($_SESSION['phone']) : 'N/A';
 $address = isset($_SESSION['address']) ? htmlspecialchars($_SESSION['address']) : 'N/A';
-$role = isset($_SESSION['role']) ? htmlspecialchars($_SESSION['role']) : 'N/A'; // New field
+$role = isset($_SESSION['role']) ? htmlspecialchars($_SESSION['role']) : 'N/A';
 $profileImage = htmlspecialchars($_SESSION['profile_image']);
 ?>
 
@@ -35,7 +31,7 @@ $profileImage = htmlspecialchars($_SESSION['profile_image']);
             <div class="profile-info">
                 <div class="profile-image">
                     <img src="../../assets/img/profile_images/<?php echo $profileImage; ?>" alt="Profile Image" class="profile-image-img">
-                    <a href="edit_profile.php" class="edit-button">Edit Profile</a> <!-- Link to edit profile -->
+                    <a href="edit_profile.php" class="edit-button">Edit Profile</a>
                 </div>
                 <div class="profile-details">
                     <div class="info-segment">
@@ -54,7 +50,7 @@ $profileImage = htmlspecialchars($_SESSION['profile_image']);
                         <strong>Address:</strong> <?php echo $address; ?>
                     </div>
                     <div class="info-segment">
-                        <strong>Role:</strong> <?php echo $role; ?> <!-- Role not editable -->
+                        <strong>Role:</strong> <?php echo $role; ?>
                     </div>
                 </div>
             </div>

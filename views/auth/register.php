@@ -2,10 +2,9 @@
 session_start();
 require_once '../../controllers/AuthController.php';
 
-$error_message = ""; // Initialize the error message variable
+$error_message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect form data
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
@@ -13,18 +12,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = $_POST['phone'];
     $address = $_POST['address'];
     $role = $_POST['role'];
-    $profile_image = $_FILES['profile_image']; // Pass the whole file array
+    $profile_image = $_FILES['profile_image'];
 
     $authController = new AuthController();
     $registrationResult = $authController->register($first_name, $last_name, $password, $email, $phone, $address, $role, $profile_image);
 
     if ($registrationResult === true) {
-        // Redirect to login page after successful registration
         header("Location: login.php");
         exit;
     } else {
-        // Set the error message
-        $error_message = $registrationResult; // Should contain specific error messages
+        $error_message = $registrationResult;
     }
 }
 ?>
@@ -34,10 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/login.css">
     <title>Register</title>
 </head>
 <body>
+    <?php include '../components/header.php' ?>
     <div class="container">
         <h2>Register</h2>
         <?php if (!empty($error_message)): ?>

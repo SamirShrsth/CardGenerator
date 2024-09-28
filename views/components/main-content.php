@@ -4,11 +4,9 @@
         <p>Create professional and high-quality cards in a matter of minutes! Whether you need business or ID cards, our system lets you design and generate the perfect card quickly and easily. You can also request an official ID card from your institution!</p>
         <div class="home-button">
             <a href="#" class="create-card-btn">Create a Card</a>
-            <a href="#" class="create-card-btn">View Templates</a>
+            <a href="http://localhost/CardGenerator/views/pages/view_templates.php" class="create-card-btn">View Templates</a>
         </div>
     </div>
-
-    <!-- Slideshow (Right Content) -->
     <div class="right-content">
         <div class="slideshow-container">
             <div class="slide">
@@ -26,9 +24,7 @@
     
         </div>
         <div class="navigation-buttons">
-            <!-- Next/Prev buttons below the images -->
             <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-            <!-- Dots for navigation -->
             <div class="dots-container">
                 <span class="dot" onclick="setCurrentSlide(1)"></span>
                 <span class="dot" onclick="setCurrentSlide(2)"></span>

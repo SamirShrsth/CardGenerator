@@ -8,18 +8,17 @@
     <link rel="stylesheet" href="/CardGenerator/assets/css/style.css">
     <link rel="stylesheet" href="/CardGenerator/assets/css/templates.css">
     <style>
-        /* Styling for image previews */
         .image-preview {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
         }
         .image-preview img {
-            width: 150px; /* Width of the preview image */
-            height: auto; /* Keep the aspect ratio */
-            border: 1px solid #ccc; /* Border for the image preview */
-            border-radius: 4px; /* Rounded corners */
-            margin-right: 10px; /* Space between images */
+            width: 150px;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -30,7 +29,7 @@
         <h2>Add New Card Template</h2>
         <p>Select the orientation of the card and upload images for the front and back.</p>
 
-        <form action="../handler/upload_card_template.php" method="POST" enctype="multipart/form-data" class="template-form">
+        <form action="../../controllers/UploadTemplateController.php" method="POST" enctype="multipart/form-data" class="template-form">
             <div class="form-group">
                 <label for="orientation">Select Orientation:</label>
                 <select name="orientation" id="orientation" required>
@@ -66,12 +65,12 @@
             const reader = new FileReader();
 
             reader.onload = function(e) {
-                preview.src = e.target.result; // Set the preview image source
-                preview.style.display = 'block'; // Show the image
+                preview.src = e.target.result
+                preview.style.display = 'block';
             };
 
             if (file) {
-                reader.readAsDataURL(file); // Read the file as a data URL
+                reader.readAsDataURL(file);
             }
         }
     </script>

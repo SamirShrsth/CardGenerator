@@ -1,38 +1,33 @@
-<!-- views/edit_profile.php -->
+
 <?php
 session_start();
-require_once '../../controllers/AuthController.php'; // Ensure to include your AuthController
+require_once '../../controllers/AuthController.php';
 
-// Check if the user is logged in
+
 if (!isset($_SESSION['first_name'])) {
-    header('Location: login.php'); // Redirect to login if not logged in
+    header('Location: login.php');
     exit();
 }
 
-// Assuming user information is stored in session variables
 $firstName = htmlspecialchars($_SESSION['first_name']);
 $lastName = isset($_SESSION['last_name']) ? htmlspecialchars($_SESSION['last_name']) : 'N/A';
 $email = isset($_SESSION['email']) ? htmlspecialchars($_SESSION['email']) : 'N/A';
 $phone = isset($_SESSION['phone']) ? htmlspecialchars($_SESSION['phone']) : 'N/A';
 $address = isset($_SESSION['address']) ? htmlspecialchars($_SESSION['address']) : 'N/A';
-$userId = $_SESSION['user_id']; // Assuming you are storing user ID in the session
+$userId = $_SESSION['user_id'];
 
-// Handle form submission for profile update
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $authController = new AuthController();
-    
-    // Update session variables with new data
+
     $_SESSION['first_name'] = $_POST['first_name'];
     $_SESSION['last_name'] = $_POST['last_name'];
     $_SESSION['email'] = $_POST['email'];
     $_SESSION['phone'] = $_POST['phone'];
     $_SESSION['address'] = $_POST['address'];
 
-    // Call update method to update the database
     $updateSuccess = $authController->updateProfile($userId, $_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['email'], $_SESSION['phone'], $_SESSION['address']);
 
     if ($updateSuccess) {
-        // Redirect back to profile after successful update
         header('Location: profile.php');
         exit();
     } else {
