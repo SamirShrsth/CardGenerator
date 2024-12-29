@@ -13,7 +13,7 @@ $base_url = '/CardGenerator/';
     <nav>
         <ul class="nav-list">
             <li><a href="<?php echo $base_url; ?>">Home</a></li>
-            <li><a href="<?php echo $base_url; ?>">Create Card</a></li>
+            <li><a href="<?php echo $base_url; ?>views/pages/create_card.php">Create Card</a></li>
             <li><a href="<?php echo $base_url; ?>">My Cards</a></li>
 
             <li class="dropdown">

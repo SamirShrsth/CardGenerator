@@ -43,18 +43,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="error-message"><?php echo htmlspecialchars($error_message); ?></div>
         <?php endif; ?>
         <form method="POST" action="" enctype="multipart/form-data">
-            <input type="text" name="first_name" placeholder="First Name" required><br>
-            <input type="text" name="last_name" placeholder="Last Name" required><br>
-            <input type="email" name="email" placeholder="Email" required><br>
-            <input type="password" name="password" placeholder="Password" required><br>
-            <input type="text" name="phone" placeholder="Phone Number"><br>
-            <textarea name="address" placeholder="Address"></textarea><br>
-            <select name="role" required>
-                <option value="user">User</option>
-                <option value="org">Organization</option>
-            </select><br>
-            <input type="file" name="profile_image"><br>
-            <button type="submit">Register</button>
+            <div class="registerGroup">
+                <div class="form-group">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name" id="first_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name" id="last_name" required>
+                </div>
+            </div>
+            <div class="registerGroup">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+            </div>
+            <div class="registerGroup">
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" name="phone" id="phone">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role:</label>
+                    <select name="role" id="role" required>
+                        <option value="user">User </option>
+                        <option value="org">Organization</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea name="address" id="address"></textarea>
+                </div>
+            
+            <div class="form-group">
+                <label for="profile_image">Profile Image:</label>
+                <input type="file" name="profile_image" id="profile_image">
+            </div>
+            <div class="registerGroup">
+                <button type="submit">Register</button>
+            </div>
         </form>
         <p>Already have an account? <a href="login.php">Login here</a></p>
     </div>

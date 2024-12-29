@@ -28,6 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/login.css">
     <title>Login</title>
+    <style>
+        .container{
+            max-width: 600px;
+            margin-top: 100px;
+        }
+    </style>
 </head>
 <body>
     <?php include '../components/header.php'; ?>
@@ -37,9 +43,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="error-message"><?php echo htmlspecialchars($error_message); ?></div>
         <?php endif; ?>
         <form method="POST" action="">
-            <input type="email" name="email" placeholder="Email" required><br>
-            <input type="password" name="password" placeholder="Password" required><br>
-            <button type="submit">Login</button>
+            <label for="email">Email:</label>
+            <input type="email" name="email" required><br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" required><br>
+            <div class="registerGroup">
+                <button type="submit">Login</button>
+            </div>
         </form>
         <p>Don't have an account? <a href="register.php">Register here</a></p>
     </div>

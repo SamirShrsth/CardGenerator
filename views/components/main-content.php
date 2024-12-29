@@ -1,7 +1,7 @@
 <section class="main-content">
     <div class="left-content">
         <h1>Create Your Card</h1>
-        <p>Create professional and high-quality cards in a matter of minutes! Whether you need business or ID cards, our system lets you design and generate the perfect card quickly and easily. You can also request an official ID card from your institution!</p>
+        <p>Create professional and high-quality cards in a matter of minutes! Our system lets you design and generate the perfect card quickly and easily. You can also request an official ID card from your institution!</p>
         <div class="home-button">
             <a href="#" class="create-card-btn">Create a Card</a>
             <a href="http://localhost/CardGenerator/views/pages/view_templates.php" class="create-card-btn">View Templates</a>

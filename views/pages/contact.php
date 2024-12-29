@@ -22,8 +22,6 @@
         <?php endif; ?>
 
         <div class="contact-form-container">
-            <div class="form-left">
-            </div>
             <div class="form-right">
                 <form class="contact-form" method="POST" action="../../controllers/ContactController.php">
                     <div class="form-group">
@@ -38,7 +36,7 @@
 
                     <div class="form-group">
                         <label for="message">Your Message</label>
-                        <textarea id="message" name="message" rows="6" placeholder="Write your message" required></textarea>
+                        <textarea id="message" name="message" rows="4" placeholder="Write your message" required></textarea>
                     </div>
 
                     <button type="submit" class="contact-submit-btn">Send Message</button>

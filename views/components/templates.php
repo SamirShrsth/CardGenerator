@@ -37,7 +37,7 @@ $result = $conn->query($query);
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: black;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -46,6 +46,6 @@ $result = $conn->query($query);
 }
 
 .view-all-btn:hover {
-    background-color: #0056b3;
+    background-color: #007BFF;
 }
 </style>

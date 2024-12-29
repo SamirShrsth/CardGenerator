@@ -427,24 +427,13 @@ a {
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
 }
 
 textarea {
@@ -489,9 +478,6 @@ textarea {
     background-color: #007bff;
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
 
 .form-group label {
     display: block;
@@ -503,9 +489,9 @@ textarea {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 15px;
     font-size: 14px;
-    border: 1px solid #ddd;
+    padding: 10px;
+    border: 1px solid black;
     border-radius: 5px;
     background-color: #fff;
     transition: border-color 0.3s ease;

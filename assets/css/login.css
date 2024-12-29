@@ -4,9 +4,12 @@ body {
     margin: 0;
     padding: 0;
 }
-
+h2{
+    font-size: 2rem;
+    text-align: center;
+}
 .container {
-    max-width: 400px;
+    max-width: 800px;
     margin: auto;
     padding: 20px;
     background-color: white;
@@ -14,29 +17,40 @@ body {
     border-radius: 10px;
     margin-top: 30px;
 }
+.form-group{
+    width: 49%;
+}
+.form-group textarea{
+    width: 100%;
+}
+.registerGroup{
+    display: flex;
+    justify-content: space-between;
+}
+.container .error-message{
+    color: red;
+}
 .container a{
     color: purple;
     text-decoration:underline;
 }
-h2 {
-    text-align: center;
-}
 
-input, select {
+input, select, textarea {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border: 1px solid black;
     border-radius: 5px;
 }
 
 button {
-    width: 100%;
-    padding: 10px;
+    width: 30%;
+    margin: auto;
+    padding: 15px;  
     background-color: black;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
@@ -46,4 +60,5 @@ button:hover {
 
 p {
     text-align: center;
+    margin-top: 10px;
 }

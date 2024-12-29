@@ -17,7 +17,7 @@ body {
 .contact-section h2 {
     text-align: center;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .contact-section p {
@@ -29,7 +29,6 @@ body {
 .contact-form-container {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
 }
 
 .form-left,
@@ -56,7 +55,7 @@ input[type="email"],
 textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid black;
     border-radius: 4px;
     font-size: 16px;
     transition: border-color 0.3s;
@@ -69,7 +68,7 @@ textarea:focus {
 }
 
 .contact-submit-btn {
-    background-color: #007BFF;
+    background-color: black;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -80,7 +79,7 @@ textarea:focus {
 }
 
 .contact-submit-btn:hover {
-    background-color: black;
+    background-color: #007BFF;
 }
 .success-message {
     color: green;
