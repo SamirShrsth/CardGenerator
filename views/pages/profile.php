@@ -8,9 +8,6 @@ if (!isset($_SESSION['first_name'])) {
 $firstName = htmlspecialchars($_SESSION['first_name']);
 $lastName = isset($_SESSION['last_name']) ? htmlspecialchars($_SESSION['last_name']) : 'N/A';
 $email = isset($_SESSION['email']) ? htmlspecialchars($_SESSION['email']) : 'N/A';
-$phone = isset($_SESSION['phone']) ? htmlspecialchars($_SESSION['phone']) : 'N/A';
-$address = isset($_SESSION['address']) ? htmlspecialchars($_SESSION['address']) : 'N/A';
-$role = isset($_SESSION['role']) ? htmlspecialchars($_SESSION['role']) : 'N/A';
 $profileImage = htmlspecialchars($_SESSION['profile_image']);
 ?>
 
@@ -32,6 +29,7 @@ $profileImage = htmlspecialchars($_SESSION['profile_image']);
                 <div class="profile-image">
                     <img src="../../assets/img/profile_images/<?php echo $profileImage; ?>" alt="Profile Image" class="profile-image-img">
                     <a href="edit_profile.php" class="edit-button">Edit Profile</a>
+                    <a href="my_cards.php" class="edit-button">View My Cards</a>
                 </div>
                 <div class="profile-details">
                     <div class="info-segment">
@@ -43,14 +41,6 @@ $profileImage = htmlspecialchars($_SESSION['profile_image']);
                     <div class="info-segment">
                         <strong>Email:</strong> <?php echo $email; ?>
                     </div>
-                    <div class="info-segment">
-                        <strong>Phone:</strong> <?php echo $phone; ?>
-                    </div>
-                    <div class="info-segment">
-                        <strong>Address:</strong> <?php echo $address; ?>
-                    </div>
-                    <div class="info-segment">
-                        <strong>Role:</strong> <?php echo $role; ?>
                     </div>
                 </div>
             </div>

@@ -22,8 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['first_name'] = $_POST['first_name'];
     $_SESSION['last_name'] = $_POST['last_name'];
     $_SESSION['email'] = $_POST['email'];
-    $_SESSION['phone'] = $_POST['phone'];
-    $_SESSION['address'] = $_POST['address'];
 
     $updateSuccess = $authController->updateProfile($userId, $_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['email'], $_SESSION['phone'], $_SESSION['address']);
 
@@ -61,12 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <label for="email">Email:</label>
                 <input type="email" name="email" value="<?php echo $email; ?>" required>
-
-                <label for="phone">Phone:</label>
-                <input type="text" name="phone" value="<?php echo $phone; ?>" required>
-
-                <label for="address">Address:</label>
-                <input type="text" name="address" value="<?php echo $address; ?>" required>
 
                 <button type="submit">Update Profile</button>
             </form>

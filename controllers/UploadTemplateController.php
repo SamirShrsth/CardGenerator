@@ -8,13 +8,15 @@ ini_set('display_errors', 1);
 $database = new Database();
 $conn = $database->getConnection();
 
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user_id']) && !isset($_SESSION['org_id'])) {
     header("Location: http://localhost/CardGenerator/views/auth/login.php");
     exit();
 }
 
 $firstName = $_SESSION['first_name'] ?? '';
 $lastName = $_SESSION['last_name'] ?? '';
+$creatorId = isset($_SESSION['org_id']) ? $_SESSION['org_id'] : $_SESSION['user_id'];
+$role = isset($_SESSION['org_id']) ? 'organization' : 'user';
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -50,10 +52,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
 
         if (move_uploaded_file($frontImage['tmp_name'], $frontImagePath) && move_uploaded_file($backImage['tmp_name'], $backImagePath)) {
-            $createdBy = $firstName . ' ' . $lastName;
-            $query = "INSERT INTO card_templates (orientation, front_image, back_image, created_by) VALUES (?, ?, ?, ?)";
+            $query = "INSERT INTO card_templates (orientation, front_image, back_image, creator_type, creator_id) VALUES (?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($query);
-            $stmt->bind_param("ssss", $orientation, $frontImagePath, $backImagePath, $createdBy);
+            $stmt->bind_param("sssss", $orientation, $frontImagePath, $backImagePath, $role, $creatorId);
             $stmt->execute();
 
             echo "<script>
@@ -67,4 +68,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+
 ?>

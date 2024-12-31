@@ -18,7 +18,7 @@ if ($action == 'register' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $role = $_POST['role'];
     $profile_image = $_FILES['profile_image'];
 
-    $registrationResult = $authController->register($first_name, $last_name, $password, $email, $phone, $address, $role, $profile_image);
+    $registrationResult = $authController->registerUser($first_name, $last_name, $password, $email, $phone, $address, $role, $profile_image);
 
     if ($registrationResult === true) {
         header("Location: login.php");

@@ -9,7 +9,7 @@ h2{
     text-align: center;
 }
 .container {
-    max-width: 800px;
+    max-width: 600px;
     margin: auto;
     padding: 20px;
     background-color: white;
@@ -17,8 +17,19 @@ h2{
     border-radius: 10px;
     margin-top: 30px;
 }
-.form-group{
-    width: 49%;
+.container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form > .form-group{
+    width: 70%;
+}
+form #userFields{
+    width: 70%;
+}
+form #orgFields{
+    width: 70%;
 }
 .form-group textarea{
     width: 100%;
@@ -61,4 +72,11 @@ button:hover {
 p {
     text-align: center;
     margin-top: 10px;
+}
+.container {
+    margin-top: 100px;
+}
+.error-message {
+    color: red;
+    font-size: 12px;
 }

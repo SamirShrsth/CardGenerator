@@ -29,7 +29,7 @@
         <h2>Add New Card Template</h2>
         <p>Select the orientation of the card and upload images for the front and back.</p>
 
-        <form action="../../controllers/UploadTemplateController.php" method="POST" enctype="multipart/form-data" class="template-form">
+        <form id="templateForm" action="../../controllers/UploadTemplateController.php" method="POST" enctype="multipart/form-data" class="template-form">
             <div class="form-group">
                 <label for="orientation">Select Orientation:</label>
                 <select name="orientation" id="orientation" required>
@@ -59,13 +59,22 @@
     </section>
 
     <script>
+        document.getElementById('templateForm').addEventListener('submit', function(event) {
+            // Check if the user is logged in
+            <?php if (!isset($_SESSION['user_id'])): ?>
+                event.preventDefault(); // Prevent form submission
+                alert("You need to log in to StreamCard first before you can upload a template.");
+                window.location.href = '../auth/login.php'; // Redirect to login page
+            <?php endif; ?>
+        });
+
         function previewImage(event, previewId) {
             const file = event.target.files[0];
             const preview = document.getElementById(previewId);
             const reader = new FileReader();
 
             reader.onload = function(e) {
-                preview.src = e.target.result
+                preview.src = e.target.result;
                 preview.style.display = 'block';
             };
 
