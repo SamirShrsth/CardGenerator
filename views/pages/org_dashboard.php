@@ -63,7 +63,7 @@ $orgLogo = htmlspecialchars($_SESSION['logo']);
             switch ($tab) {
                 case 'dashboard':
                     echo '<h1>Dashboard</h1>';
-                    // Fetch and display dashboard here
+                    include './admin_tabs/dashboard_tab.php';
                     break;
                 case 'pending_requests':
                     echo '<h1>Pending Requests</h1>';

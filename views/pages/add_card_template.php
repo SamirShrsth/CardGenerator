@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php
+ session_start();
+if(isset($_SESSION['org_id'])){
+    header('Location: http://localhost/CardGenerator/views/pages/org_dashboard.php?tab=create_card');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

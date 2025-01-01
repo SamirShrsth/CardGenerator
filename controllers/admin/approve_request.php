@@ -17,6 +17,6 @@ $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $cardId);
 $stmt->execute();
 
-header("Location: /CardGenerator/views/pages/org_dashboard/php?tab=view_requests");
+header("Location: /CardGenerator/views/pages/org_dashboard.php?tab=pending_requests");
 exit();
 ?>

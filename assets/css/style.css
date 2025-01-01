@@ -33,7 +33,7 @@ header {
 
 /* Nav */
 nav .user-icon {
-    width: 30px;
+    width: 35px;
     height: 30px;
     vertical-align: middle;
     margin-right: 10px;
@@ -197,56 +197,7 @@ a {
 .dot.active {
     background-color: #717171;
 }
-/* View Templates  */
-.templates-section {
-    background-color: #f4f4f4;
-    padding: 60px 80px;
-    text-align: center;
-}
-.templates-section p{
-    margin-bottom: 40px;
-}
 
-.templates-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.templates-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.template-item {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-}
-
-.template-item img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-
-.template-item h3 {
-    font-size: 1rem;
-    margin-top: 10px;
-    color: #333;
-}
-.template-item.hidden {
-    opacity: 0;
-    pointer-events: none;/
-}
-/* Hover effect for template items */
-.template-item:hover {
-    transform: scale(1.05);
-}
 .view-more {
     background-color: #0088FF;
     color: white;
@@ -683,13 +634,7 @@ nav.active {
     .slideshow-container{
         height: 60%;
     }
-    .templates-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .template-item {
-        width: 100%;
-    }
+    
     .benefits-container, .testimonials-container {
         flex-direction: column;
         align-items: center;
@@ -719,7 +664,7 @@ nav.active {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 481px) {
     header {
         padding: 10px;
         text-align: center;
@@ -744,24 +689,7 @@ nav.active {
         width: 100%;
         height: auto;
     }
-    .templates-container {
-        grid-template-columns: 1fr;
-    }
-    .benefits-section h2, .testimonials-section h2 {
-        font-size: 24px;
-    }
-
-    .benefit-item, .testimonial-item {
-        width: 100%;
-    }
-    .template-item {
-        width: 100%;
-    }
-
-    .templates-section h2 {
-        font-size: 28px;
-    }
-
+    
     .benefits-section h2 {
         font-size: 28px;
     }

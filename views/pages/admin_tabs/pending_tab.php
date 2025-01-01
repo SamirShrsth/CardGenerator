@@ -39,8 +39,8 @@ $result = $stmt->get_result();
                 <td><?php echo htmlspecialchars($row['department']); ?></td>
                 <td><?php echo htmlspecialchars($row['card_status']); ?></td>
                 <td class="action-buttons">
-                    <a href="approve_request.php?id=<?php echo $row['card_id']; ?>" class="approve">Approve</a>
-                    <a href="reject_request.php?id=<?php echo $row['card_id']; ?>" class="reject">Reject</a>
+                    <a href="/CardGenerator/controllers/admin/approve_request.php?id=<?php echo $row['card_id']; ?>" class="approve">Approve</a>
+                    <a href="/CardGenerator/controllers/admin/reject_request.php?id=<?php echo $row['card_id']; ?>" class="reject">Reject</a>
                 </td>
             </tr>
         <?php endwhile; ?>

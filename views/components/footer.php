@@ -19,7 +19,6 @@
             <ul class="quick-links">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">Services</a></li>
                 <li><a href="http://localhost/CardGenerator/views/pages/contact.php">Contact Us</a></li>
             </ul>
         </div>

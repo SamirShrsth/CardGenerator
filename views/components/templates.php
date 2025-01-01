@@ -7,7 +7,6 @@ $conn = $database->getConnection();
 $query = "SELECT orientation, front_image, back_image, creator_type, creator_id FROM card_templates LIMIT 4";
 $result = $conn->query($query);
 ?>
-
 <div class="templates-section">
     <h2>View Templates</h2>
     <p>View a variety of templates made by us and other users like you!</p>
@@ -36,7 +35,12 @@ $result = $conn->query($query);
                     $orgStmt->execute();
                     $orgResult = $orgStmt->get_result();
                     $organization = $orgResult->fetch_assoc();
-                    $creatorName = htmlspecialchars($organization['org_name']);
+
+                    if ($organization !== null) {
+                        $creatorName = htmlspecialchars($organization['org_name']);
+                    } else {
+                        $creatorName = 'Unknown Organization';
+                    }
                 }
 
                 echo '<div class="template-item">';

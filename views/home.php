@@ -8,6 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StreamCard</title>
     <link rel="stylesheet" href="/CardGenerator/assets/css/style.css">
+    <link rel="stylesheet" href="/CardGenerator/assets/css/view_templates.css">
     <script src="./assets//js//slideshow.js"></script>
     <script src="./assets/js/viewMore.js"></script>
     <style>

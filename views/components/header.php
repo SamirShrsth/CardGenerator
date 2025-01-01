@@ -15,7 +15,7 @@ $base_url = '/CardGenerator/';
             <li><a href="<?php echo $base_url; ?>">Home</a></li>
             <li><a href="<?php echo $base_url; ?>views/pages/create_card.php" id="requestCardLink">Request Card</a></li>
             <li><a href="<?php echo $base_url; ?>views/pages/view_templates.php">View Templates</a></li>
-            <li><a href="<?php echo $base_url; ?>views/pages/add_card_template.php" id="addTemplateLink">Add Template</a></li>
+            <!-- <li><a href="<?php echo $base_url; ?>views/pages/add_card_template.php" id="addTemplateLink">Add Template</a></li> -->
             <li><a href="<?php echo $base_url; ?>views/pages/contact.php">Contact</a></li>
         </ul>
     </nav>
