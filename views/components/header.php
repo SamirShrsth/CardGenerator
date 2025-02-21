@@ -3,7 +3,7 @@ $base_url = '/CardGenerator/';
 ?>
 <header>
     <div class="logo">  
-        <a href="<?php echo $base_url; ?>"><img src="<?php echo $base_url; ?>assets/img/logo/logo.png" alt=""></a>
+        <a href="<?php echo $base_url; ?>"><img src="<?php echo $base_url; ?>assets/img/logo/logo_black.png" alt=""></a>
     </div>
     <div class="menu-toggle" id="mobile-menu">
         <span class="bar"></span>

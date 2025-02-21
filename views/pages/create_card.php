@@ -53,11 +53,9 @@ if (isset($_SESSION['user_id'])) {
                     <label for="template">Select Template:</label>
                     <select name="template" id="template" required>
                         <?php
-                        // Get the selected template ID from the query parameter
                         $templateId = $_GET['template'] ?? null;
                         $orgName = $_GET['org_name'] ?? null;
 
-                        // Fetch templates and organization names from the database
                         $query = "SELECT ct.template_id, ct.front_image, ct.back_image, ct.orientation, o.org_name, o.logo, o.address, o.phone, o.org_id 
                         FROM card_templates ct 
                         JOIN organizations o ON ct.creator_id = o.org_id 
@@ -66,7 +64,7 @@ if (isset($_SESSION['user_id'])) {
 
                         if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                        // Fetch organization name
+                        
                         $orgId = $row['org_id'];
                         $orgQuery = "SELECT org_name FROM organizations WHERE org_id = ?";
                         $orgStmt = $conn->prepare($orgQuery);
@@ -76,11 +74,9 @@ if (isset($_SESSION['user_id'])) {
                         $organization = $orgResult->fetch_assoc();
                         $creatorName = htmlspecialchars($organization['org_name']);
 
-                        // Determine the template orientation class
                         $orientationClass = htmlspecialchars($row['orientation']);
                         $frontImage = htmlspecialchars($row['front_image']);
 
-                        // Select the template if it matches the query parameter
                         $selected = ($row['template_id'] == $templateId) ? 'selected' : '';
                         echo '<option value="' . htmlspecialchars($row['template_id']) . '" ' . $selected . ' 
                             data-front-image="' . htmlspecialchars($row['front_image']) . '"
@@ -89,7 +85,7 @@ if (isset($_SESSION['user_id'])) {
                             data-logo="' . htmlspecialchars($row['logo']) . '" 
                             data-address="' . htmlspecialchars($row['address']) . '" 
                             data-phone="' . htmlspecialchars($row['phone']) . '"
-                            data-org-id="' . htmlspecialchars($row['org_id']) . '">' // Set the data-org-id attribute
+                            data-org-id="' . htmlspecialchars($row['org_id']) . '">'
                             . htmlspecialchars($row['org_name']) . '</option>';
                         }
                         } else {
@@ -108,13 +104,20 @@ if (isset($_SESSION['user_id'])) {
                 </div>
 
                 <div class="form-group">
-                    <label for="idNumber">Registration Number:</label>
-                    <input type="text" id="idNumber" name="idNumber" placeholder="Enter your registration number" required>
+                    <label for="idNumber">Roll No:</label>
+                    <input type="text" id="idNumber" name="idNumber" placeholder="Enter your roll number" required>
                 </div>
 
                 <div class="form-group">
                     <label for="department">Department:</label>
-                    <input type="text" id="department" name="department" placeholder="Enter your department" required>
+                    <select id="department" name="department" required>
+                        <option value="">Select your department</option>
+                        <option value="BCA">BCA</option>
+                        <option value="BBS">BBS</option>
+                        <option value="CSIT">CSIT</option>
+                        <option value="BIT">BIT</option>
+                        <option value="BBM">BBM</option>
+                    </select>
                 </div>
 
                 <button type="button" id="generateCardBtn" class="submit-btn">Generate Card</button>
@@ -133,7 +136,7 @@ if (isset($_SESSION['user_id'])) {
         </section>
     </div>
 
-    <script src="../../assets/js/createCard.js">    </script>
+    <script src="../../assets/js/createCard.js"></script>
 
     
 </body>

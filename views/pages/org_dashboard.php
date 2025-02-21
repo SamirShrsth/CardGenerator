@@ -49,6 +49,10 @@ $orgLogo = htmlspecialchars($_SESSION['logo']);
                 <img src="../../assets/img/icons/icon-create.png" alt="Create Card Icon" class="sidebar-icon">
                 Create Card
             </a>
+            <a href="?tab=contacts" class="<?php echo $current_tab === 'contacts' ? 'active' : ''; ?>">
+                <img src="../../assets/img/icons/icon-contacts.png" alt="Contacts Icon" class="sidebar-icon">
+                Contacts
+            </a>
             <a href="../auth/logout.php" class="<?php echo $current_tab === 'logout' ? 'active' : ''; ?>" onclick="return confirmLogout();">
                 <img src="../../assets/img/icons/icon-logout.png" alt="Logout Icon" class="sidebar-icon">
                 Logout
@@ -82,6 +86,10 @@ $orgLogo = htmlspecialchars($_SESSION['logo']);
 
                     include './admin_tabs/create_tab.php';
 
+                    break;
+                case 'contacts':
+                    echo '<h1>Contact Information</h1>';
+                    include './admin_tabs/contacts_tab.php';
                     break;
                 default:
                     echo '<h1>Dashboard</h1>';

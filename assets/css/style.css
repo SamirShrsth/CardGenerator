@@ -27,8 +27,7 @@ header {
 }
 
 .logo img{
-    width: 120px;
-    height: 20px;
+    width: 55px;
 }
 
 /* Nav */
@@ -687,7 +686,7 @@ nav.active {
     }
     .right-content img {
         width: 100%;
-        height: auto;
+        height: 300px;
     }
     
     .benefits-section h2 {

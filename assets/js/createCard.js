@@ -68,7 +68,7 @@ document.getElementById('generateCardBtn').addEventListener('click', function ()
                 <img src="${profileImage}" alt="User Image" class="user-image">
                 <div class="user-data">
                     <h4>${name}</h4>
-                    <p>Registration Number: ${idNumber}</p>
+                    <p>Roll No: ${idNumber}</p>
                     <p>Department: ${department}</p>
                 </div>
             </div>

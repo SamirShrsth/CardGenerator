@@ -9,7 +9,7 @@ $conn = $database->getConnection();
 $query = "
     SELECT c.card_id, c.card_status, ct.front_image, ct.back_image, ct.orientation, 
            c.first_name, c.last_name, c.registration_number, c.department, 
-           c.org_name, c.org_logo, c.org_address, c.org_phone, c.profile_image
+           c.org_name, c.org_logo, c.org_address, c.org_phone, c.profile_image, c.created_at
     FROM cards c
     JOIN card_templates ct ON c.template_id = ct.template_id
     WHERE c.user_id = ? AND c.card_status != 'pending_request'";
@@ -35,6 +35,12 @@ $result = $stmt->get_result();
         <h2>My Cards</h2>
         <?php if ($result->num_rows > 0): ?>
             <?php while ($row = $result->fetch_assoc()): ?>
+                <?php
+                // Calculate the valid until date
+                $created_at = new DateTime($row['created_at']);
+                $valid_until = clone $created_at;
+                $valid_until->modify('+4 years');
+                ?>
                 <div class="card-container">
                     <div class="flip-card">
                         <div class="flip-card-inner">
@@ -46,8 +52,9 @@ $result = $stmt->get_result();
                                         <img src="/CardGenerator/assets/img/profile_images/<?php echo htmlspecialchars($row['profile_image']); ?>" alt="Profile Image" class="user-image">
                                         <div class="user-data">
                                             <h4><?php echo htmlspecialchars($row['first_name'] . ' ' . $row['last_name']); ?></h4>
-                                            <p>Registration: <?php echo htmlspecialchars($row['registration_number']); ?></p>
+                                            <p>Roll No: <?php echo htmlspecialchars($row['registration_number']); ?></p>
                                             <p>Department: <?php echo htmlspecialchars($row['department']); ?></p>
+                                            <p>Valid Date: <?php echo htmlspecialchars($valid_until->format('Y-m-d')); ?></p>
                                         </div>
                                     </div>
                                     <div class="barcode">

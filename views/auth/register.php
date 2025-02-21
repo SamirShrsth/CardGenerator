@@ -77,8 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form method="POST" action="" enctype="multipart/form-data" id="registerForm">
             <div class="form-group">
                 <label for="role">Role:</label>
-                <select name="role" id="role" required>
-                    <option value="user">User  </option>
+                <select name="role" id="role">
+                    <option value="user">User</option>
                     <option value="org">Organization</option>
                 </select>
             </div>
@@ -106,14 +106,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="form-group">
                     <label for="profile_image">Profile Image:</label>
-                    <input type="file" name="profile_image" id="profile_image" accept="image/*">
+                    <input type="file" name="profile_image" id="profile_image" accept="image/png, image/jpeg">
+                    <span class="error-message" id="profileImageError"></span>
                 </div>
             </div>
 
             <!-- Organization Fields -->
-            <script>
-               
-            </script>
             <div id="orgFields" style="display: none;">
                 <div class="form-group">
                     <label for="org_name">Organization Name:</label>
@@ -122,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="form-group">
                     <label for="org_email">Email:</label>
-                    <input type="email" name="org_email" id="org_email ">
+                    <input type="email" name="org_email" id="org_email">
                     <span class="error-message" id="orgEmailError"></span>
                 </div>
                 <div class="form-group">
@@ -137,7 +135,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="form-group">
                     <label for="org_logo">Organization Logo:</label>
-                    <input type="file" name="org_logo" id="org_logo" accept="image/*">
+                    <input type="file" name="org_logo" id="org_logo" accept="image/png, image/jpeg">
+                    <span class="error-message" id="orgLogoError"></span>
                 </div>
                 <div class="form-group">
                     <label for="org_password">Password:</label>
@@ -176,13 +175,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     const lastName = document.getElementById('last_name').value;
                     const email = document.getElementById('email').value;
                     const password = document.getElementById('password').value;
+                    const profileImage = document.getElementById('profile_image').files[0];
 
-                    if (firstName.trim() === '') {
-                        document.getElementById('firstNameError').textContent = "First name is required.";
+                    const nameRegex = /^[A-Za-z ]+$/;
+                    if (!nameRegex.test(firstName.trim())) {
+                        document.getElementById('firstNameError').textContent = "Please enter a valid first name (letters and spaces only).";
                         valid = false;
                     }
-                    if (lastName.trim() === '') {
-                        document.getElementById('lastNameError').textContent = "Last name is required.";
+                    if (!nameRegex.test(lastName.trim())) {
+                        document.getElementById('lastNameError').textContent = "Please enter a valid last name (letters and spaces only).";
                         valid = false;
                     }
                     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -194,6 +195,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         document.getElementById('passwordError').textContent = "Password must be at least 6 characters long.";
                         valid = false;
                     }
+                    if (profileImage && !['image/png', 'image/jpeg'].includes(profileImage.type)) {
+                        document.getElementById('profileImageError').textContent = "Profile image must be a PNG or JPG file.";
+                        valid = false;
+                    }
                 }
 
                 // Validate organization fields
@@ -203,11 +208,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     const orgAddress = document.getElementById('org_address').value;
                     const orgPhone = document.getElementById('org_phone').value;
                     const orgPassword = document.getElementById('org_password').value;
+                    const orgLogo = document.getElementById('org_logo').files[0];
 
-                    if (orgName.trim() === '') {
-                        document.getElementById('orgNameError').textContent = "Organization name is required.";
+                    const nameRegex = /^[A-Za-z ]+$/;
+                    if (!nameRegex.test(orgName.trim())) {
+                        document.getElementById('orgNameError').textContent = "Please enter a valid organization name (letters and spaces only).";
                         valid = false;
                     }
+                    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
                     if (!emailRegex.test(orgEmail)) {
                         document.getElementById('orgEmailError').textContent = "Please enter a valid email address.";
                         valid = false;
@@ -224,41 +232,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         document.getElementById('orgPasswordError').textContent = "Password must be at least 6 characters long.";
                         valid = false;
                     }
+                    if (orgLogo && !['image/png', 'image/jpeg'].includes(orgLogo.type)) {
+                        document.getElementById('orgLogoError').textContent = "Organization logo must be a PNG or JPG file.";
+                        valid = false;
+                    }
                 }
 
-                if (!valid ) {
+                if (!valid) {
                     event.preventDefault(); // Prevent form submission
                 }
             });
-             document.getElementById('first_name').addEventListener('input', function() {
-                    document.getElementById('firstNameError').textContent = '';
-                });
-                document.getElementById('last_name').addEventListener('input', function() {
-                    document.getElementById('lastNameError').textContent = '';
-                });
-                document.getElementById('email').addEventListener('input', function() {
-                    document.getElementById('emailError').textContent = '';
-                });
-                document.getElementById('password').addEventListener('input', function() {
-                    document.getElementById('passwordError').textContent = '';
-                });
 
-
-                document.getElementById('org_name').addEventListener('input', function() {
-                    document.getElementById('orgNameError').textContent = '';
+            // Clear error messages on input
+            document.querySelectorAll('input, textarea').forEach(function(input) {
+                input.addEventListener('input', function() {
+                    this.nextElementSibling.textContent = '';
                 });
-                document.getElementById('org_email').addEventListener('input', function() {
-                    document.getElementById('orgEmailError').textContent = '';
-                });
-                document.getElementById('org_address').addEventListener('input', function() {
-                    document.getElementById('orgAddressError').textContent = '';
-                });
-                document.getElementById('org_phone').addEventListener('input', function() {
-                    document.getElementById('orgPhoneError').textContent = '';
-                });
-                document.getElementById('org_password').addEventListener('input', function() {
-                    document.getElementById('orgPasswordError').textContent = '';
-                });
+            });
         </script>
         <p>Already have an account? <a href="login.php">Login here</a></p>
     </div>
